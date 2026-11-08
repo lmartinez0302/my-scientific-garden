@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Scientific Garden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__leaves" aria-hidden="true">🌿</div>
+    <div class="hero__content">
+      <span class="hero__badge">Science Project</span>
+      <h1>My Scientific Garden</h1>
+      <p id="welcomeMessage">Record, observe, and discover how your plants grow!</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" aria-labelledby="generalTitle">
+      <div class="section-heading">
+        <div class="section-number">1</div>
+        <div>
+          <p class="eyebrow">Scientist information</p>
+          <h2 id="generalTitle">General Information</h2>
+        </div>
+      </div>
+
+      <form id="generalForm" class="form-grid">
+        <label>
+          School Name
+          <input id="school" type="text" required maxlength="80" placeholder="e.g. Green School">
+        </label>
+        <label>
+          Student Name
+          <input id="student" type="text" required maxlength="80" placeholder="e.g. Alex Smith">
+        </label>
+        <label>
+          Plant Name
+          <input id="plantName" type="text" required maxlength="80" placeholder="e.g. Bean">
+        </label>
+        <label>
+          Grade
+          <input id="grade" type="text" required value="5th Grade">
+        </label>
+        <button class="button button--primary" type="submit">Save Information</button>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="measurementTitle">
+      <div class="section-heading">
+        <div class="section-number">2</div>
+        <div>
+          <p class="eyebrow">Experiment observations</p>
+          <h2 id="measurementTitle">Daily Measurements</h2>
+        </div>
+      </div>
+
+      <form id="measurementForm">
+        <div class="form-grid form-grid--four">
+          <label>
+            Experiment Day
+            <select id="day" required></select>
+          </label>
+          <label>
+            Group
+            <select id="group" required>
+              <option value="Group A - 10ml">Group A - 10ml</option>
+              <option value="Group B - 30ml">Group B - 30ml</option>
+              <option value="Group C - 40ml">Group C - 40ml</option>
+            </select>
+          </label>
+          <label>
+            Container
+            <select id="container" required>
+              <option value="Container 1">Container 1</option>
+              <option value="Container 2">Container 2</option>
+              <option value="Container 3">Container 3</option>
+            </select>
+          </label>
+          <label>
+            Average plant height (in)
+            <input id="size" type="number" required min="0" step="0.1" placeholder="e.g. 2.0">
+          </label>
+          <label>
+            Number of plants with leaves
+            <input id="leaves" type="number" required min="0" max="4" step="1" placeholder="0 to 4">
+          </label>
+          <label>
+            Number of living/sprouted plants
+            <input id="alive" type="number" required min="0" max="4" step="1" placeholder="0 to 4">
+          </label>
+          <label class="file-field">
+            Upload Photo of the Day
+            <span class="file-button">Choose image</span>
+            <input id="photo" type="file" accept="image/*">
+          </label>
+          <div class="photo-preview-wrap">
+            <img id="photoPreview" alt="Photo preview">
+          </div>
+          <button class="button button--primary form-grid__action" type="submit">Save Measurement</button>
+        </div>
+      </form>
+
+      <div class="history">
+        <div class="history__title">
+          <h3>Observation History</h3>
+          <span id="recordCount" class="pill">0 records</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Group</th>
+                <th>Container</th>
+                <th>Height (in)</th>
+                <th>With Leaves</th>
+                <th>Living</th>
+                <th>Photo</th>
+                <th><span class="sr-only">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody id="recordsTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="resultsTitle">
+      <div class="section-heading">
+        <div class="section-number">3</div>
+        <div>
+          <p class="eyebrow">Analyze your results</p>
+          <h2 id="resultsTitle">Charts and Results</h2>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <article class="chart-card">
+          <h3>Average Growth</h3>
+          <p>Plant height by day (in)</p>
+          <div class="chart-wrap"><canvas id="sizeChart"></canvas></div>
+        </article>
+        <article class="chart-card">
+          <h3>Living Plants</h3>
+          <p>Number of living plants by group</p>
+          <div class="chart-wrap"><canvas id="aliveChart"></canvas></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
