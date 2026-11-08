@@ -1,5 +1,15 @@
 {
   "app": "Plantastic Data",
   "profile": null,
-  "measurements": []
+  "measurements": [
+    {
+      "day": 1,
+      "group": "Group A - 10ml",
+      "container": "Container 1",
+      "size": 2.1,
+      "leaves": 3,
+      "alive": 4,
+      "photo": "photos/day1-container1.jpg"
+    }
+  ]
 }
