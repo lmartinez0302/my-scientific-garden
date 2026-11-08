@@ -162,7 +162,7 @@ function renderTable() {
       <td>${record.size}</td>
       <td>${record.leaves}</td>
       <td>${record.alive}</td>
-      <td>${record.photo ? `<img class="table-photo" src="${photoSource(record.photo)}" alt="Photo for day ${record.day}">` : "—"}</td>
+      <td>${record.photo ? `<button class="photo-thumbnail" type="button" data-photo="${photoSource(record.photo)}" aria-label="Enlarge photo for day ${record.day}"><img class="table-photo" src="${photoSource(record.photo)}" alt="Photo for day ${record.day}"></button>` : "—"}</td>
       <td><button class="delete-button" type="button" data-id="${record.id}" aria-label="Delete record">Delete</button></td>
     </tr>
   `).join("");
@@ -170,12 +170,24 @@ function renderTable() {
 
 // Delete the selected record.
 function deleteMeasurement(event) {
+  const photoButton = event.target.closest("[data-photo]");
+  if (photoButton) {
+    openPhoto(photoButton.dataset.photo);
+    return;
+  }
   const button = event.target.closest("[data-id]");
   if (!button) return;
   measurements = measurements.filter(record => record.id !== Number(button.dataset.id));
   localStorage.setItem(STORAGE.measurements, JSON.stringify(measurements));
   renderAll();
   showToast("Record deleted.");
+}
+
+// Open a measurement photo in a larger dialog.
+function openPhoto(photo) {
+  const dialog = document.getElementById("photoDialog");
+  document.getElementById("largePhoto").src = photo;
+  dialog.showModal();
 }
 
 // Calculate the average height for each group and day.
@@ -355,6 +367,10 @@ document.getElementById("generalForm").addEventListener("submit", saveProfile);
 document.getElementById("measurementForm").addEventListener("submit", saveMeasurement);
 document.getElementById("photo").addEventListener("change", previewPhoto);
 document.getElementById("recordsTable").addEventListener("click", deleteMeasurement);
+document.getElementById("closePhotoDialog").addEventListener("click", () => document.getElementById("photoDialog").close());
+document.getElementById("photoDialog").addEventListener("click", event => {
+  if (event.target === event.currentTarget) event.currentTarget.close();
+});
 document.getElementById("exportData").addEventListener("click", exportData);
 document.getElementById("importButton").addEventListener("click", () => document.getElementById("importData").click());
 document.getElementById("importData").addEventListener("change", importData);
