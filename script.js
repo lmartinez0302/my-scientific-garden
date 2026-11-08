@@ -14,6 +14,7 @@ let measurements = migrateMeasurements(JSON.parse(localStorage.getItem(STORAGE.m
 let sizeChart;
 let aliveChart;
 let pendingPhoto = "";
+const SHARED_DATA_URL = "./data/plantastic-data.json";
 
 // Convert older saved Spanish measurements to English and centimeters to inches.
 function migrateMeasurements(savedMeasurements) {
@@ -161,7 +162,7 @@ function renderTable() {
       <td>${record.size}</td>
       <td>${record.leaves}</td>
       <td>${record.alive}</td>
-      <td>${record.photo ? `<img class="table-photo" src="${record.photo}" alt="Photo for day ${record.day}">` : "—"}</td>
+      <td>${record.photo ? `<img class="table-photo" src="${photoSource(record.photo)}" alt="Photo for day ${record.day}">` : "—"}</td>
       <td><button class="delete-button" type="button" data-id="${record.id}" aria-label="Delete record">Delete</button></td>
     </tr>
   `).join("");
@@ -310,9 +311,45 @@ function importData(event) {
   reader.readAsText(file);
 }
 
+// Load shared records from GitHub Pages and combine them with local changes.
+async function loadSharedData() {
+  try {
+    const response = await fetch(`${SHARED_DATA_URL}?v=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) return;
+    const shared = await response.json();
+    const sharedMeasurements = migrateMeasurements(Array.isArray(shared.measurements) ? shared.measurements : []);
+    const localMeasurements = migrateMeasurements(
+      JSON.parse(localStorage.getItem(STORAGE.measurements) || "[]")
+    );
+    const combined = new Map();
+    [...sharedMeasurements, ...localMeasurements].forEach(record => {
+      combined.set(`${record.day}-${record.group}-${record.container}`, record);
+    });
+    measurements = [...combined.values()];
+    localStorage.setItem(STORAGE.measurements, JSON.stringify(measurements));
+
+    if (!localStorage.getItem(STORAGE.profile) && shared.profile) {
+      localStorage.setItem(STORAGE.profile, JSON.stringify(shared.profile));
+      loadProfile();
+    }
+    renderAll();
+    showToast("Shared data loaded.");
+  } catch (error) {
+    // The app still works with LocalStorage when the shared file is unavailable.
+  }
+}
+
+// Photo paths stored in JSON are relative to the website; Base64 photos remain unchanged.
+function photoSource(photo) {
+  if (!photo) return "";
+  if (photo.startsWith("data:") || /^https?:\/\//i.test(photo)) return photo;
+  return new URL(photo.replace(/^\.\//, ""), document.baseURI).href;
+}
+
 initializeDays();
 loadProfile();
 renderAll();
+loadSharedData();
 
 document.getElementById("generalForm").addEventListener("submit", saveProfile);
 document.getElementById("measurementForm").addEventListener("submit", saveMeasurement);
