@@ -108,7 +108,12 @@
       <div class="history">
         <div class="history__title">
           <h3>Observation History</h3>
-          <span id="recordCount" class="pill">0 records</span>
+          <div class="history-actions">
+            <span id="recordCount" class="pill">0 records</span>
+            <button id="exportData" class="button button--secondary" type="button">Download JSON</button>
+            <button id="importButton" class="button button--secondary" type="button">Upload JSON</button>
+            <input id="importData" type="file" accept=".json,application/json" hidden>
+          </div>
         </div>
         <div class="table-wrap">
           <table>

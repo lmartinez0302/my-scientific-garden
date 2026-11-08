@@ -267,6 +267,49 @@ function showToast(message) {
   showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 2600);
 }
 
+// Download profile and measurements as a portable JSON backup file.
+function exportData() {
+  const profile = JSON.parse(localStorage.getItem(STORAGE.profile) || "null");
+  const backup = {
+    app: "Plantastic Data",
+    exportedAt: new Date().toISOString(),
+    profile,
+    measurements
+  };
+  const file = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(file);
+  link.download = "plantastic-data.json";
+  link.click();
+  URL.revokeObjectURL(link.href);
+  showToast("JSON backup downloaded.");
+}
+
+// Restore profile and measurements from a valid JSON backup.
+function importData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const backup = JSON.parse(reader.result);
+      if (!Array.isArray(backup.measurements)) throw new Error("Invalid backup");
+      measurements = migrateMeasurements(backup.measurements);
+      localStorage.setItem(STORAGE.measurements, JSON.stringify(measurements));
+      if (backup.profile) {
+        localStorage.setItem(STORAGE.profile, JSON.stringify(backup.profile));
+        loadProfile();
+      }
+      renderAll();
+      showToast("JSON data restored.");
+    } catch (error) {
+      showToast("This is not a valid Plantastic Data file.");
+    }
+    event.target.value = "";
+  };
+  reader.readAsText(file);
+}
+
 initializeDays();
 loadProfile();
 renderAll();
@@ -275,3 +318,6 @@ document.getElementById("generalForm").addEventListener("submit", saveProfile);
 document.getElementById("measurementForm").addEventListener("submit", saveMeasurement);
 document.getElementById("photo").addEventListener("change", previewPhoto);
 document.getElementById("recordsTable").addEventListener("click", deleteMeasurement);
+document.getElementById("exportData").addEventListener("click", exportData);
+document.getElementById("importButton").addEventListener("click", () => document.getElementById("importData").click());
+document.getElementById("importData").addEventListener("change", importData);

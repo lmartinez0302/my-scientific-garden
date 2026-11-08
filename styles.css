@@ -75,6 +75,8 @@ input:focus, select:focus { border-color: var(--green); box-shadow: 0 0 0 3px rg
 
 .history { margin-top: 32px; }
 .history__title { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.history-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.button--secondary { min-height: 38px; color: var(--forest); border: 2px solid var(--green); background: white; }
 .history h3, .chart-card h3 { margin: 0; color: var(--forest); font-size: 1.25rem; }
 .pill { padding: 5px 10px; color: var(--forest); background: var(--lime); border-radius: 20px; font-size: .78rem; font-weight: 800; }
 .table-wrap { overflow-x: auto; margin-top: 12px; border: 1px solid #e8e8dc; border-radius: 14px; }
@@ -108,6 +110,7 @@ tbody tr:last-child td { border-bottom: 0; }
   .section-number { flex-basis: 46px; height: 46px; }
   .form-grid, .form-grid--four { grid-template-columns: 1fr; }
   .charts-grid { gap: 14px; }
+  .history__title { align-items: flex-start; flex-direction: column; }
   .chart-card { padding: 14px 8px; }
   .chart-wrap { height: 290px; }
 }
