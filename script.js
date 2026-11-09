@@ -13,6 +13,7 @@ const COLORS = {
 let measurements = migrateMeasurements(JSON.parse(localStorage.getItem(STORAGE.measurements) || "[]"));
 let sizeChart;
 let aliveChart;
+let totalAliveChart;
 let pendingPhoto = "";
 const SHARED_DATA_URL = "./data/plantastic-data.json";
 
@@ -215,7 +216,7 @@ function totalAliveByGroup(days) {
   }));
 }
 
-// Draw or update both charts using the saved data.
+// Draw or update the charts using the saved data.
 function renderCharts() {
   const days = [...new Set(measurements.map(record => record.day))].sort((a, b) => a - b);
   const labels = days.map(day => `Day ${day}`);
@@ -255,6 +256,7 @@ function renderCharts() {
 
   if (sizeChart) sizeChart.destroy();
   if (aliveChart) aliveChart.destroy();
+  if (totalAliveChart) totalAliveChart.destroy();
   sizeChart = new Chart(document.getElementById("sizeChart"), {
     type: "line", data: { labels, datasets }, options: chartOptions
   });
@@ -262,6 +264,32 @@ function renderCharts() {
     type: "line",
     data: { labels, datasets: aliveDatasets },
     options: { ...chartOptions, scales: { ...chartOptions.scales, y: { ...chartOptions.scales.y, title: { display: true, text: "Living plants" } } } }
+  });
+  totalAliveChart = new Chart(document.getElementById("totalAliveChart"), {
+    type: "bar",
+    data: {
+      labels,
+      datasets: totalAliveByGroup(days).map(item => ({
+        label: item.group.replace(" - ", ": "),
+        data: item.values,
+        backgroundColor: COLORS[item.group],
+        borderColor: COLORS[item.group],
+        borderWidth: 1,
+        borderRadius: 6
+      }))
+    },
+    options: {
+      ...chartOptions,
+      scales: {
+        ...chartOptions.scales,
+        y: {
+          ...chartOptions.scales.y,
+          beginAtZero: true,
+          max: 12,
+          title: { display: true, text: "Total living plants" }
+        }
+      }
+    }
   });
 }
 
