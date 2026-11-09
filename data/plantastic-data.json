@@ -1,15 +1,821 @@
 {
   "app": "Plantastic Data",
-  "profile": null,
+  "profile": {
+    "school": "HENRY M. FLAGLER ELEMENTARY",
+    "student": "Evan Martinez Diaz",
+    "plantName": "Mung Bean",
+    "grade": "5th"
+  },
   "measurements": [
     {
       "day": 1,
       "group": "Group A - 10ml",
       "container": "Container 1",
-      "size": 2.1,
-      "leaves": 3,
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/1.jpg"
+    },
+    {
+      "day": 1,
+      "group": "Group A - 10ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/1.jpg"
+    },
+    {
+      "day": 1,
+      "group": "Group A - 10ml",
+      "container": "Container 3",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/1.jpg"
+    },
+    {
+      "day": 1,
+      "group": "Group B - 30ml",
+      "container": "Container 1",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/1.jpg"
+    },
+    {
+      "day": 1,
+      "group": "Group B - 30ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/1.jpg"
+    },
+    {
+      "day": 1,
+      "group": "Group B - 30ml",
+      "container": "Container 3",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/1.jpg"
+    },
+    {
+      "day": 1,
+      "group": "Group C - 40ml",
+      "container": "Container 1",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/1.jpg"
+    },
+    {
+      "day": 1,
+      "group": "Group C - 40ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/1.jpg"
+    },
+    {
+      "day": 1,
+      "group": "Group C - 40ml",
+      "container": "Container 3",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/1.jpg"
+    },
+    {
+      "day": 2,
+      "group": "Group A - 10ml",
+      "container": "Container 1",
+      "size": 0.1,
+      "leaves": 0,
+      "alive": 3,
+      "photo": "photos/2.jpg"
+    },
+    {
+      "day": 2,
+      "group": "Group A - 10ml",
+      "container": "Container 2",
+      "size": 0.1,
+      "leaves": 0,
+      "alive": 2,
+      "photo": "photos/2.jpg"
+    },
+    {
+      "day": 2,
+      "group": "Group A - 10ml",
+      "container": "Container 3",
+      "size": 0.2,
+      "leaves": 0,
+      "alive": 1,
+      "photo": "photos/2.jpg"
+    },
+    {
+      "day": 2,
+      "group": "Group B - 30ml",
+      "container": "Container 1",
+      "size": 0.2,
+      "leaves": 0,
       "alive": 4,
-      "photo": "photos/day1-container1.jpg"
+      "photo": "photos/2.jpg"
+    },
+    {
+      "day": 2,
+      "group": "Group B - 30ml",
+      "container": "Container 2",
+      "size": 0.2,
+      "leaves": 0,
+      "alive": 2,
+      "photo": "photos/2.jpg"
+    },
+    {
+      "day": 2,
+      "group": "Group B - 30ml",
+      "container": "Container 3",
+      "size": 0.2,
+      "leaves": 0,
+      "alive": 2,
+      "photo": "photos/2.jpg"
+    },
+    {
+      "day": 2,
+      "group": "Group C - 40ml",
+      "container": "Container 1",
+      "size": 0.1,
+      "leaves": 0,
+      "alive": 2,
+      "photo": "photos/2.jpg"
+    },
+    {
+      "day": 2,
+      "group": "Group C - 40ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/2.jpg"
+    },
+    {
+      "day": 2,
+      "group": "Group C - 40ml",
+      "container": "Container 3",
+      "size": 0.1,
+      "leaves": 0,
+      "alive": 1,
+      "photo": "photos/2.jpg"
+    },
+    {
+      "day": 3,
+      "group": "Group A - 10ml",
+      "container": "Container 1",
+      "size": 1,
+      "leaves": 1,
+      "alive": 3,
+      "photo": "photos/3.jpg"
+    },
+    {
+      "day": 3,
+      "group": "Group A - 10ml",
+      "container": "Container 2",
+      "size": 0.5,
+      "leaves": 1,
+      "alive": 2,
+      "photo": "photos/3.jpg"
+    },
+    {
+      "day": 3,
+      "group": "Group A - 10ml",
+      "container": "Container 3",
+      "size": 1,
+      "leaves": 1,
+      "alive": 3,
+      "photo": "photos/3.jpg"
+    },
+    {
+      "day": 3,
+      "group": "Group B - 30ml",
+      "container": "Container 1",
+      "size": 1,
+      "leaves": 2,
+      "alive": 4,
+      "photo": "photos/3.jpg"
+    },
+    {
+      "day": 3,
+      "group": "Group B - 30ml",
+      "container": "Container 2",
+      "size": 1,
+      "leaves": 1,
+      "alive": 2,
+      "photo": "photos/3.jpg"
+    },
+    {
+      "day": 3,
+      "group": "Group B - 30ml",
+      "container": "Container 3",
+      "size": 0.6,
+      "leaves": 1,
+      "alive": 2,
+      "photo": "photos/3.jpg"
+    },
+    {
+      "day": 3,
+      "group": "Group C - 40ml",
+      "container": "Container 1",
+      "size": 1,
+      "leaves": 1,
+      "alive": 2,
+      "photo": "photos/3.jpg"
+    },
+    {
+      "day": 3,
+      "group": "Group C - 40ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/3.jpg"
+    },
+    {
+      "day": 3,
+      "group": "Group C - 40ml",
+      "container": "Container 3",
+      "size": 0.6,
+      "leaves": 1,
+      "alive": 1,
+      "photo": "photos/3.jpg"
+    },
+    {
+      "day": 4,
+      "group": "Group A - 10ml",
+      "container": "Container 1",
+      "size": 3,
+      "leaves": 5,
+      "alive": 3,
+      "photo": ""
+    },
+    {
+      "day": 4,
+      "group": "Group A - 10ml",
+      "container": "Container 2",
+      "size": 3,
+      "leaves": 5,
+      "alive": 3,
+      "photo": ""
+    },
+    {
+      "day": 4,
+      "group": "Group A - 10ml",
+      "container": "Container 3",
+      "size": 3,
+      "leaves": 6,
+      "alive": 3,
+      "photo": ""
+    },
+    {
+      "day": 4,
+      "group": "Group B - 30ml",
+      "container": "Container 1",
+      "size": 4,
+      "leaves": 8,
+      "alive": 4,
+      "photo": ""
+    },
+    {
+      "day": 4,
+      "group": "Group B - 30ml",
+      "container": "Container 2",
+      "size": 4,
+      "leaves": 4,
+      "alive": 2,
+      "photo": ""
+    },
+    {
+      "day": 4,
+      "group": "Group B - 30ml",
+      "container": "Container 3",
+      "size": 4,
+      "leaves": 4,
+      "alive": 2,
+      "photo": ""
+    },
+    {
+      "day": 4,
+      "group": "Group C - 40ml",
+      "container": "Container 1",
+      "size": 4,
+      "leaves": 2,
+      "alive": 2,
+      "photo": ""
+    },
+    {
+      "day": 4,
+      "group": "Group C - 40ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": ""
+    },
+    {
+      "day": 4,
+      "group": "Group C - 40ml",
+      "container": "Container 3",
+      "size": 4,
+      "leaves": 2,
+      "alive": 1,
+      "photo": ""
+    },
+    {
+      "day": 5,
+      "group": "Group A - 10ml",
+      "container": "Container 1",
+      "size": 3,
+      "leaves": 5,
+      "alive": 3,
+      "photo": "photos/5.jpg"
+    },
+    {
+      "day": 5,
+      "group": "Group A - 10ml",
+      "container": "Container 2",
+      "size": 3,
+      "leaves": 5,
+      "alive": 3,
+      "photo": "photos/5.jpg"
+    },
+    {
+      "day": 5,
+      "group": "Group A - 10ml",
+      "container": "Container 3",
+      "size": 3,
+      "leaves": 6,
+      "alive": 3,
+      "photo": "photos/5.jpg"
+    },
+    {
+      "day": 5,
+      "group": "Group B - 30ml",
+      "container": "Container 1",
+      "size": 4,
+      "leaves": 8,
+      "alive": 4,
+      "photo": "photos/5.jpg"
+    },
+    {
+      "day": 5,
+      "group": "Group B - 30ml",
+      "container": "Container 2",
+      "size": 4,
+      "leaves": 4,
+      "alive": 2,
+      "photo": "photos/5.jpg"
+    },
+    {
+      "day": 5,
+      "group": "Group B - 30ml",
+      "container": "Container 3",
+      "size": 4,
+      "leaves": 4,
+      "alive": 2,
+      "photo": "photos/5.jpg"
+    },
+    {
+      "day": 5,
+      "group": "Group C - 40ml",
+      "container": "Container 1",
+      "size": 4,
+      "leaves": 2,
+      "alive": 2,
+      "photo": "photos/5.jpg"
+    },
+    {
+      "day": 5,
+      "group": "Group C - 40ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/5.jpg"
+    },
+    {
+      "day": 5,
+      "group": "Group C - 40ml",
+      "container": "Container 3",
+      "size": 4,
+      "leaves": 2,
+      "alive": 1,
+      "photo": "photos/5.jpg"
+    },
+    {
+      "day": 6,
+      "group": "Group A - 10ml",
+      "container": "Container 1",
+      "size": 4,
+      "leaves": 5,
+      "alive": 3,
+      "photo": ""
+    },
+    {
+      "day": 6,
+      "group": "Group A - 10ml",
+      "container": "Container 2",
+      "size": 4,
+      "leaves": 5,
+      "alive": 3,
+      "photo": ""
+    },
+    {
+      "day": 6,
+      "group": "Group A - 10ml",
+      "container": "Container 3",
+      "size": 4,
+      "leaves": 6,
+      "alive": 3,
+      "photo": ""
+    },
+    {
+      "day": 6,
+      "group": "Group B - 30ml",
+      "container": "Container 1",
+      "size": 5,
+      "leaves": 8,
+      "alive": 4,
+      "photo": ""
+    },
+    {
+      "day": 6,
+      "group": "Group B - 30ml",
+      "container": "Container 2",
+      "size": 5,
+      "leaves": 4,
+      "alive": 2,
+      "photo": ""
+    },
+    {
+      "day": 6,
+      "group": "Group B - 30ml",
+      "container": "Container 3",
+      "size": 5,
+      "leaves": 4,
+      "alive": 2,
+      "photo": ""
+    },
+    {
+      "day": 6,
+      "group": "Group C - 40ml",
+      "container": "Container 1",
+      "size": 5,
+      "leaves": 2,
+      "alive": 2,
+      "photo": ""
+    },
+    {
+      "day": 6,
+      "group": "Group C - 40ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": ""
+    },
+    {
+      "day": 6,
+      "group": "Group C - 40ml",
+      "container": "Container 3",
+      "size": 5,
+      "leaves": 2,
+      "alive": 1,
+      "photo": ""
+    },
+    {
+      "day": 7,
+      "group": "Group A - 10ml",
+      "container": "Container 1",
+      "size": 5,
+      "leaves": 5,
+      "alive": 3,
+      "photo": ""
+    },
+    {
+      "day": 7,
+      "group": "Group A - 10ml",
+      "container": "Container 2",
+      "size": 5,
+      "leaves": 5,
+      "alive": 3,
+      "photo": ""
+    },
+    {
+      "day": 7,
+      "group": "Group A - 10ml",
+      "container": "Container 3",
+      "size": 5,
+      "leaves": 6,
+      "alive": 3,
+      "photo": ""
+    },
+    {
+      "day": 7,
+      "group": "Group B - 30ml",
+      "container": "Container 1",
+      "size": 7,
+      "leaves": 8,
+      "alive": 4,
+      "photo": ""
+    },
+    {
+      "day": 7,
+      "group": "Group B - 30ml",
+      "container": "Container 2",
+      "size": 7,
+      "leaves": 4,
+      "alive": 2,
+      "photo": ""
+    },
+    {
+      "day": 7,
+      "group": "Group B - 30ml",
+      "container": "Container 3",
+      "size": 7,
+      "leaves": 4,
+      "alive": 2,
+      "photo": ""
+    },
+    {
+      "day": 7,
+      "group": "Group C - 40ml",
+      "container": "Container 1",
+      "size": 7,
+      "leaves": 2,
+      "alive": 2,
+      "photo": ""
+    },
+    {
+      "day": 7,
+      "group": "Group C - 40ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": ""
+    },
+    {
+      "day": 7,
+      "group": "Group C - 40ml",
+      "container": "Container 3",
+      "size": 7,
+      "leaves": 2,
+      "alive": 1,
+      "photo": ""
+    },
+    {
+      "day": 8,
+      "group": "Group A - 10ml",
+      "container": "Container 1",
+      "size": 7,
+      "leaves": 5,
+      "alive": 3,
+      "photo": "photos/8.jpg"
+    },
+    {
+      "day": 8,
+      "group": "Group A - 10ml",
+      "container": "Container 2",
+      "size": 7,
+      "leaves": 5,
+      "alive": 3,
+      "photo": "photos/8.jpg"
+    },
+    {
+      "day": 8,
+      "group": "Group A - 10ml",
+      "container": "Container 3",
+      "size": 7,
+      "leaves": 6,
+      "alive": 3,
+      "photo": "photos/8.jpg"
+    },
+    {
+      "day": 8,
+      "group": "Group B - 30ml",
+      "container": "Container 1",
+      "size": 7,
+      "leaves": 8,
+      "alive": 4,
+      "photo": "photos/8.jpg"
+    },
+    {
+      "day": 8,
+      "group": "Group B - 30ml",
+      "container": "Container 2",
+      "size": 7,
+      "leaves": 4,
+      "alive": 2,
+      "photo": "photos/8.jpg"
+    },
+    {
+      "day": 8,
+      "group": "Group B - 30ml",
+      "container": "Container 3",
+      "size": 7,
+      "leaves": 4,
+      "alive": 2,
+      "photo": "photos/8.jpg"
+    },
+    {
+      "day": 8,
+      "group": "Group C - 40ml",
+      "container": "Container 1",
+      "size": 7,
+      "leaves": 2,
+      "alive": 2,
+      "photo": "photos/8.jpg"
+    },
+    {
+      "day": 8,
+      "group": "Group C - 40ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/8.jpg"
+    },
+    {
+      "day": 8,
+      "group": "Group C - 40ml",
+      "container": "Container 3",
+      "size": 7,
+      "leaves": 2,
+      "alive": 1,
+      "photo": "photos/8.jpg"
+    },
+    {
+      "day": 9,
+      "group": "Group A - 10ml",
+      "container": "Container 1",
+      "size": 7,
+      "leaves": 5,
+      "alive": 3,
+      "photo": "photos/9.jpg"
+    },
+    {
+      "day": 9,
+      "group": "Group A - 10ml",
+      "container": "Container 2",
+      "size": 7,
+      "leaves": 5,
+      "alive": 3,
+      "photo": "photos/9.jpg"
+    },
+    {
+      "day": 9,
+      "group": "Group A - 10ml",
+      "container": "Container 3",
+      "size": 7,
+      "leaves": 6,
+      "alive": 3,
+      "photo": "photos/9.jpg"
+    },
+    {
+      "day": 9,
+      "group": "Group B - 30ml",
+      "container": "Container 1",
+      "size": 7,
+      "leaves": 8,
+      "alive": 4,
+      "photo": "photos/9.jpg"
+    },
+    {
+      "day": 9,
+      "group": "Group B - 30ml",
+      "container": "Container 2",
+      "size": 7,
+      "leaves": 4,
+      "alive": 2,
+      "photo": "photos/9.jpg"
+    },
+    {
+      "day": 9,
+      "group": "Group B - 30ml",
+      "container": "Container 3",
+      "size": 7,
+      "leaves": 4,
+      "alive": 2,
+      "photo": "photos/9.jpg"
+    },
+    {
+      "day": 9,
+      "group": "Group C - 40ml",
+      "container": "Container 1",
+      "size": 7,
+      "leaves": 2,
+      "alive": 2,
+      "photo": "photos/9.jpg"
+    },
+    {
+      "day": 9,
+      "group": "Group C - 40ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/9.jpg"
+    },
+    {
+      "day": 9,
+      "group": "Group C - 40ml",
+      "container": "Container 3",
+      "size": 7,
+      "leaves": 2,
+      "alive": 1,
+      "photo": "photos/9.jpg"
+    },
+    {
+      "day": 15,
+      "group": "Group A - 10ml",
+      "container": "Container 1",
+      "size": 7,
+      "leaves": 3,
+      "alive": 3,
+      "photo": "photos/15.jpg"
+    },
+    {
+      "day": 15,
+      "group": "Group A - 10ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/15.jpg"
+    },
+    {
+      "day": 15,
+      "group": "Group A - 10ml",
+      "container": "Container 3",
+      "size": 7,
+      "leaves": 2,
+      "alive": 2,
+      "photo": "photos/15.jpg"
+    },
+    {
+      "day": 15,
+      "group": "Group B - 30ml",
+      "container": "Container 1",
+      "size": 7,
+      "leaves": 7,
+      "alive": 4,
+      "photo": "photos/15.jpg"
+    },
+    {
+      "day": 15,
+      "group": "Group B - 30ml",
+      "container": "Container 2",
+      "size": 7,
+      "leaves": 3,
+      "alive": 2,
+      "photo": "photos/15.jpg"
+    },
+    {
+      "day": 15,
+      "group": "Group B - 30ml",
+      "container": "Container 3",
+      "size": 7,
+      "leaves": 4,
+      "alive": 2,
+      "photo": "photos/15.jpg"
+    },
+    {
+      "day": 15,
+      "group": "Group C - 40ml",
+      "container": "Container 1",
+      "size": 8,
+      "leaves": 4,
+      "alive": 2,
+      "photo": "photos/15.jpg"
+    },
+    {
+      "day": 15,
+      "group": "Group C - 40ml",
+      "container": "Container 2",
+      "size": 0,
+      "leaves": 0,
+      "alive": 0,
+      "photo": "photos/15.jpg"
+    },
+    {
+      "day": 15,
+      "group": "Group C - 40ml",
+      "container": "Container 3",
+      "size": 8,
+      "leaves": 3,
+      "alive": 1,
+      "photo": "photos/15.jpg"
     }
   ]
 }
