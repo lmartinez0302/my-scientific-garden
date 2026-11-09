@@ -265,7 +265,9 @@ function renderCharts() {
     data: { labels, datasets: aliveDatasets },
     options: { ...chartOptions, scales: { ...chartOptions.scales, y: { ...chartOptions.scales.y, title: { display: true, text: "Living plants" } } } }
   });
-  totalAliveChart = new Chart(document.getElementById("totalAliveChart"), {
+  const totalAliveCanvas = document.getElementById("totalAliveChart");
+  totalAliveCanvas.style.width = `${Math.max(900, days.length * 105)}px`;
+  totalAliveChart = new Chart(totalAliveCanvas, {
     type: "bar",
     data: {
       labels,
@@ -280,6 +282,12 @@ function renderCharts() {
     },
     options: {
       ...chartOptions,
+      datasets: {
+        bar: {
+          categoryPercentage: 0.82,
+          barPercentage: 0.72
+        }
+      },
       scales: {
         ...chartOptions.scales,
         y: {
