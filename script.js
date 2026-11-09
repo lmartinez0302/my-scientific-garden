@@ -1,4 +1,4 @@
-const STORAGE = {
+﻿const STORAGE = {
   profile: "plantasticProfile",
   measurements: "plantasticMeasurements"
 };
@@ -266,36 +266,9 @@ function renderCharts() {
     options: { ...chartOptions, scales: { ...chartOptions.scales, y: { ...chartOptions.scales.y, title: { display: true, text: "Living plants" } } } }
   });
   const totalAliveCanvas = document.getElementById("totalAliveChart");
-  const totalChartWidth = Math.max(900, days.length * 105);
-  totalAliveCanvas.style.width = `${totalChartWidth}px`;
-  totalAliveCanvas.style.height = "330px";
+  totalAliveCanvas.style.width = `${Math.max(900, days.length * 105)}px`;
   totalAliveChart = new Chart(totalAliveCanvas, {
     type: "bar",
-    options: {
-      responsive: false,
-      maintainAspectRatio: false,
-      animation: { duration: 700 },
-      datasets: {
-        bar: {
-          categoryPercentage: 0.82,
-          barPercentage: 0.72
-        }
-      },
-      plugins: { legend: { labels: { usePointStyle: true, font: { family: "Nunito", size: 12 } } } },
-      scales: {
-        x: {
-          title: { display: true, text: "Experiment Days" },
-          grid: { display: false },
-          offset: true
-        },
-        y: {
-          beginAtZero: true,
-          max: 12,
-          ticks: { precision: 0 },
-          title: { display: true, text: "Total living plants" }
-        }
-      }
-    },
     data: {
       labels,
       datasets: totalAliveByGroup(days).map(item => ({
@@ -306,6 +279,24 @@ function renderCharts() {
         borderWidth: 1,
         borderRadius: 6
       }))
+    },
+    options: {
+      ...chartOptions,
+      datasets: {
+        bar: {
+          categoryPercentage: 0.82,
+          barPercentage: 0.72
+        }
+      },
+      scales: {
+        ...chartOptions.scales,
+        y: {
+          ...chartOptions.scales.y,
+          beginAtZero: true,
+          max: 12,
+          title: { display: true, text: "Total living plants" }
+        }
+      }
     }
   });
 }
