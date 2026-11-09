@@ -99,8 +99,8 @@ tbody tr:last-child td { border-bottom: 0; }
 .chart-card--wide { grid-column: 1 / -1; }
 .chart-card > p { margin: 5px 0 16px; color: #738073; font-size: .86rem; }
 .chart-wrap { position: relative; height: 330px; }
-.chart-wrap--scroll { overflow-x: auto; overflow-y: hidden; }
-.chart-wrap--scroll canvas { min-height: 330px; }
+.chart-wrap--scroll { overflow-x: auto; overflow-y: hidden; padding-bottom: 4px; }
+.chart-wrap--scroll canvas { display: block; min-height: 330px; }
 .toast { position: fixed; right: 20px; bottom: 20px; z-index: 10; padding: 12px 18px; color: white; background: var(--forest); border-radius: 12px; box-shadow: var(--shadow); opacity: 0; transform: translateY(15px); pointer-events: none; transition: .3s; }
 .toast.show { opacity: 1; transform: translateY(0); }
 
