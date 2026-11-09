@@ -27,7 +27,7 @@ function migrateMeasurements(savedMeasurements) {
       ...record,
       group: number ? `Group ${number} - ${amount}` : record.group,
       container: `Container ${containerNumber}`,
-      size: record.unit === "in" ? Number(record.size) : Number((Number(record.size) / 2.54).toFixed(2)),
+      size: Number(record.size),
       unit: "in"
     };
   });
