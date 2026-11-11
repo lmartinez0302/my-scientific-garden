@@ -125,8 +125,9 @@ function saveMeasurement(event) {
     item.day === record.day && item.group === record.group && item.container === record.container
   );
   const previousMeasurements = [...measurements];
-  if (existingIndex >= 0) measurements[existingIndex] = { ...record, id: measurements[existingIndex].id };
-  else measurements.push(record);
+  if (existingIndex >= 0) {
+    measurements[existingIndex] = { ...record, id: measurements[existingIndex].id ?? Date.now() };
+  } else measurements.push(record);
 
   try {
     localStorage.setItem(STORAGE.measurements, JSON.stringify(measurements));
@@ -359,7 +360,7 @@ function importData(event) {
   reader.readAsText(file);
 }
 
-// Load shared records from GitHub Pages and combine them with local changes.
+// Load shared records and retain only locally saved additions or overrides.
 async function loadSharedData() {
   try {
     const response = await fetch(`${SHARED_DATA_URL}?v=${Date.now()}`, { cache: "no-store" });
@@ -369,10 +370,11 @@ async function loadSharedData() {
     const localMeasurements = migrateMeasurements(
       JSON.parse(localStorage.getItem(STORAGE.measurements) || "[]")
     );
-    const combined = new Map();
-    [...sharedMeasurements, ...localMeasurements].forEach(record => {
-      combined.set(`${record.day}-${record.group}-${record.container}`, record);
-    });
+    const recordKey = record => `${record.day}-${record.group}-${record.container}`;
+    const combined = new Map(sharedMeasurements.map(record => [recordKey(record), record]));
+    localMeasurements
+      .filter(record => record.id != null)
+      .forEach(record => combined.set(recordKey(record), record));
     measurements = [...combined.values()];
     localStorage.setItem(STORAGE.measurements, JSON.stringify(measurements));
 
